@@ -1,5 +1,7 @@
 #include <iostream>
-
+#include <iomanip>
+#include <string>
+#include <cctype>
 #define PRINT(x) std::cout << x;
 
 enum info
@@ -24,8 +26,6 @@ class Contact
 		~Contact();
 		
 		std::string get_str(int type);
-		// std::string get_first_name();
-		// void	set_first_name();
 		void	set_contact(std::string info, int type);
 };
 
@@ -40,8 +40,9 @@ class PhoneBook
 		void	add_contact();
 		void	search();
 		void print_something();
-		Contact get_contact();
 		int get_count();
+
+		std::string edit_info(std::string info);
 };
 
 /*****************************************************/
@@ -72,18 +73,6 @@ PhoneBook::~PhoneBook()
 }
 
 /*******************************************************************************/
-
-// std::string Contact::get_first_name()
-// {
-// 	return(this->first_name);
-// }
-
-// void	Contact::set_first_name()
-// {
-// 	std::string s;
-// 	getline(std::cin, s);
-// 	this->first_name = s;
-// }
 
 std::string Contact::get_str(int type)
 {
@@ -146,27 +135,22 @@ void	Contact::set_contact(std::string info, int type)
 	if(type == FIRST_NAME)
 	{
 		first_name = info;
-		// print_info("first name == " , first_name);
 	}
 	else if (type == LAST_NAME)
 	{
 		last_name = info;
-		// print_info("last_name == ", last_name);
 	}
 	else if (type == NICKNAME)
 	{
 		nickname = info;
-		// print_info("nickname == ", nickname);
 	}
 	else if (type == PHONE_NUMBER)
 	{
 		phone_number = info;
-		// print_info("phone_number == ", phone_number);
 	}
 	else
 	{
 		darkest_secret = info;
-		// print_info("darkest_secret == ", darkest_secret);
 	}
 }
 
@@ -194,13 +178,28 @@ void	print_prompt(int type)
 	}
 }
 
+std::string	PhoneBook::edit_info(std::string info)
+{
+	return(info.replace(9,info.length(), "."));
+}
 
+bool	check_number(std::string info)
+{
+	for (int i = 0; i < int (info.length()); i++)
+	{
+		if (isdigit(info[i]) == 0)
+			return (false);
+	}
+	// if (info.length() != 10)
+	// 	return (false);
+	return(true);
+}
 
 void PhoneBook::add_contact()
 {
-	int type;
-	int n;
-	std::string info;
+	int	type;
+	int	n;
+	std::string	info;
 
 	type = 0;
 	n = 0;
@@ -208,11 +207,17 @@ void PhoneBook::add_contact()
 	{
 		print_prompt(type);
 		getline(std::cin, info);
+		if (type == PHONE_NUMBER && !check_number(info))
+		{
+			PRINT("INVALID PHONE NUMBER\n");
+			continue;
+		}
+		if (info.length() > 10)
+			info = edit_info(info);
 		if (info.length() == 0)
 		{
-			PRINT("EMPTY CONTACT");
+			PRINT("EMPTY ");
 			n = 1;
-			break;
 		}
 		contact[index].set_contact(info, type);
 		type++;
@@ -227,53 +232,31 @@ void PhoneBook::add_contact()
 			count++;
 	}
 	PRINT("\n");
-
 }
 
 
 void PhoneBook::search()
 {
-	PRINT("index |");
-	PRINT("firs_name |");
-	PRINT("last_name |");
-	PRINT("nickname |");
-	// PRINT(count);
-	// PRINT(index);
-	PRINT("\n");	
+	// std::string index;
+
+	std::cout << std::setw(10) << "INDEX" << "|";
+	std::cout << std::setw(10) << "FIRST NAME" << "|";
+	std::cout << std::setw(10) << "LAST NAME" << "|";
+	std::cout << std::setw(10) << "NICKNAME" << "|";
+	PRINT("\n");
 	for(int i = 0; i < count; i++)
 	{
-		PRINT(i);
-		PRINT(contact[i].get_str(FIRST_NAME));
-		PRINT(contact[i].get_str(LAST_NAME));
-		PRINT(contact[i].get_str(NICKNAME));
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << contact[i].get_str(FIRST_NAME) << "|";
+		std::cout << std::setw(10) << contact[i].get_str(LAST_NAME) << "|";
+		std::cout << std::setw(10) << contact[i].get_str(NICKNAME) << "|";
 		PRINT("\n");
 	}
+	// if (!getline(std::cin, index))
+	// 	exit(EXIT_SUCCESS);
+	// getline(std::cin, index);
+	// // if (index.length())
 }
-
-Contact	PhoneBook::get_contact()
-{
-	return(contact[0]);
-}
-
-// void execute_cmd(PhoneBook Ph, std::string cmd)
-// {
-// 	int i;
-// 	i = 0;
-// 	// Contact cnt;
-// 	if (cmd == "ADD")
-// 	{
-// 		Ph.add_contact();
-// 	}
-// 	//printf("address ph == %p", &Ph);
-// 	// std::cout <<  Ph.get_contact().get_str(FIRST_NAME) << std::endl;
-// 	// cnt = PhoneBook.get_contact();
-// 	else if (cmd == "SEARCH")
-// 	{
-// 		if (Ph.get_count() == 0;
-// 		Ph.search();
-// 	}
-// }
-
 
 int main()
 {
@@ -284,33 +267,21 @@ int main()
 	while (1)
 	{
 		PRINT("Enter command : ");
-		getline(std::cin >> std:ws, cmd);
-		if (std::cin.eof() || cmd == "EXIT")
+		if (!getline(std::cin, cmd)|| cmd == "EXIT")
 		{		 
 			break;
 		}
-		else if (is_cmd(cmd))
+		if (cmd == "ADD")
 		{
-			int i = 0;
-			// Contact cnt;
-			if (cmd == "ADD")
-			{
-				Ph.add_contact();
-			}
-			//printf("address ph == %p", &Ph);
-			// std::cout <<  Ph.get_contact().get_str(FIRST_NAME) << std::endl;
-			// cnt = PhoneBook.get_contact();
-			else if (cmd == "SEARCH")
-			{
-				if(Ph.get_count() != 0)
-					Ph.search();
-			}
+			Ph.add_contact();
 		}
-				// Ph.print_something();
-  			// PRINT("INVALID COMMAND\n");
-			// if (PhoneBook.contact->first_name == NULL)
-			// 	std::cout << "Yes" << std::endl;
-			// std::cout << "|" <<PhoneBook.contact->first_name << "|" << std::endl;
+		else if (cmd == "SEARCH")
+		{
+			if(Ph.get_count() != 0)
+				Ph.search();
+		}
+		else
+			PRINT("INVALID COMMAND\n");
 	}
 	PRINT("FINISH\n");
 	return (0);
