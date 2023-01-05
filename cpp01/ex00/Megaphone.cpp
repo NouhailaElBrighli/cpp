@@ -26,8 +26,7 @@ int main(int ac, char **av)
 {
 	// (void)ac;
 	// (void)av;
-	std::string arg;
-	std::string::iterator iter;
+	std::string	arg;
 	
 	if (ac != 1)
 	{
@@ -36,7 +35,7 @@ int main(int ac, char **av)
 		{
 			arg = av[j];//iter = arg.begin() i++
 			for (unsigned long i = 0; i < arg.length() ; i++)
-				std::cout << static_cast<char> (toupper(arg[i]));
+				std::cout << char (toupper(arg[i]));
 			std:: cout << " ";
 		}
 	}
