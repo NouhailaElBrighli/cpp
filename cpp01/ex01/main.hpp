@@ -9,6 +9,16 @@
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
+enum info
+{
+	FIRST_NAME,
+	LAST_NAME,
+	NICKNAME,
+	PHONE_NUMBER,
+	DARKEST_SECRET
+
+};
+
 std::string	print_and_edit(std::string info);
 void		print_info(std::string info, std::string var);
 void		print_prompt(int type);

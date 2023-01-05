@@ -70,10 +70,10 @@ bool	check_spaces(std::string info)
 {
 	for (int i = 0; i < info.length(); i++)
 	{
-		if (isspace(info[i]))
-			return (true);
+		if (!isspace(info[i]))
+			return (false);
 	}
-	return (false);
+	return (true);
 }
 
 bool check_index(std::string index, int check, int count)
@@ -82,19 +82,16 @@ bool check_index(std::string index, int check, int count)
 
 	if (check == 0)
 		return(false);
-	for (unsigned long i = 0; i < index.length(); i++)
+	if (index.length() != 1)
 	{
-		if (!isdigit(index[i]))
-		{
-			PRINT("WRONG INDEX : the index should be positive integer\n");
-			return (false);
-		}
+		PRINT("wrong index\n");
+		return (false);
 	}
 	idx = index[0] - 48;
 	if (idx > count - 1 || index.length() != 1)
 	{
-		PRINT("OUT OF THE RANGE : please enter index from the table\n");
-		return(false);
+		PRINT("wrong index\n");
+		return (false);
 	}
 	return (true);
 }

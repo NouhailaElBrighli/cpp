@@ -6,14 +6,7 @@
 
 #define PRINT(x) std::cout << x;
 
-enum info
-{
-	FIRST_NAME,
-	LAST_NAME,
-	NICKNAME,
-	PHONE_NUMBER,
-	DARKEST_SECRET
-};
+
 
 class PhoneBook
 {

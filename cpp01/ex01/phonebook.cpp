@@ -2,6 +2,8 @@
 #include "main.hpp"
 #include "Contact.hpp"
 
+
+
 int PhoneBook::index;
 int PhoneBook::count;
 
@@ -26,12 +28,11 @@ void PhoneBook::add_contact()
 			PRINT("invalid phone number\n");
 			continue;
 		}
-		if (info.length() == 0)
+		if (info.length() == 0 || check_spaces(info))
 		{
 			PRINT("EMPTY : please enter a valid information\n");
 			continue;
 		}
-		check_spaces(info);
 		contact[index].set_contact(info, type);
 		type++;
 	}
