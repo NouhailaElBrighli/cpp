@@ -10,17 +10,6 @@ int PhoneBook::get_count()
 	return (count);
 }
 
-
-bool	check_spaces(std::string info)
-{
-	for (int i = 0; i < info.length(); i++)
-	{
-		if (isspace(info[i]))
-			return (true);
-	}
-	return (false);
-}
-
 void PhoneBook::add_contact()
 {
 	int	type;
@@ -53,38 +42,6 @@ void PhoneBook::add_contact()
 	if (count <= 7)
 		count++;
 	PRINT("\n");
-}
-
-bool check_index(std::string index, int check, int count)
-{
-	int idx;
-
-	if (check == 0)
-		return(false);
-	for (unsigned long i = 0; i < index.length(); i++)
-	{
-		if (!isdigit(index[i]))
-		{
-			PRINT("WRONG INDEX : the index should be positive integer\n");
-			return (false);
-		}
-	}
-	idx = index[0] - 48;
-	if (idx > count - 1 || index.length() != 1)
-	{
-		PRINT("OUT OF THE RANGE : please enter index from the table\n");
-		return(false);
-	}
-	return (true);
-}
-
-void	print_contact_informations(Contact contact)
-{
-	std::cout << "fisrt name = " << contact.get_str(FIRST_NAME) << std::endl;
-	std::cout << "last name = " << contact.get_str(LAST_NAME) << std::endl;
-	std::cout << "nickname = " << contact.get_str(NICKNAME) << std::endl;
-	std::cout << "phone number = " << contact.get_str(PHONE_NUMBER) << std::endl;
-	std::cout << "darkest secret = " << contact.get_str(DARKEST_SECRET) << std::endl;
 }
 
 void PhoneBook::search()
