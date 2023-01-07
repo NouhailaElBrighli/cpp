@@ -1,4 +1,4 @@
-NAME = BraiiiiiiinnnzzzZ
+NAME = Megaphone
 
 CC = c++
 
@@ -6,11 +6,7 @@ RM = rm -rf
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC =	main.cpp\
-		Zombie.cpp\
-		randomChump.cpp\
-		newZombie.cpp\
-
+SRC =	Megaphone.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 

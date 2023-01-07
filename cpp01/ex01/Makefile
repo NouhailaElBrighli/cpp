@@ -1,4 +1,4 @@
-NAME = PhoneBook
+NAME =  Moar_brainz
 
 CC = c++
 
@@ -6,9 +6,8 @@ RM = rm -rf
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC =	Phonebook.cpp \
-		Contact.cpp\
-		main.cpp\
+SRC =	main.cpp\
+		Zombie.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -19,7 +18,7 @@ $(NAME) : $(OBJ)
 
 clean :
 		@$(RM) $(OBJ)
-  
+
 fclean : clean
 		@$(RM) $(NAME)
 
