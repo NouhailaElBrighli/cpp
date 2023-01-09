@@ -1,11 +1,16 @@
 #include <fstream>
 #include <iostream> 
-#include <string> 
+#include <string>
 
-
-std::string addString(std::string s1, std::string s2, std::string &newSring, int i)
+void	AddToFile(std::string& s, char **av)
 {
-	
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+
+	if (s.find(s1) == -1)
+	{
+		//earse
+	}
 }
 
 int main (int ac, char **av)
@@ -16,13 +21,8 @@ int main (int ac, char **av)
 		std::ofstream outfile;
 		std::string str;
 		std::string s;
-		std::string s1;
-		std::string s2;
-		std::string newString;
 
 		str = av[1];
-		s1 = av[2];
-		s2 = av[3];
 		infile.open(av[1]);
 		outfile.open(str + ".replace");
 		if (infile.fail() || outfile.fail())
@@ -32,13 +32,7 @@ int main (int ac, char **av)
 		}
 		getline(infile, s, '\0');
 		// outfile << s;
-		if (s.find(s1) != std::string::npos)
-		{
-			int i = s.find(s1);
-			addString(s1, s2, newString, i); 
-			std::cout << s.substr(i, s2.length()) << std::endl;
-
-		}
+		AddToFile(s, av);
 		// i = s.find(av[2]);
 		std::cout << s << std::endl;
 	}
