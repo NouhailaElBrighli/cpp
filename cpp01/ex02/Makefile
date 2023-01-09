@@ -1,4 +1,4 @@
-NAME =  Moar_brainz
+NAME = HI_THIS_IS_BRAIN
 
 CC = c++
 
@@ -7,8 +7,6 @@ RM = rm -rf
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp\
-		Zombie.cpp\
-		zombieHorde.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 

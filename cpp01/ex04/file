@@ -1,4 +1,4 @@
-NAME =  Moar_brainz
+NAME = UnnecessaryViolence
 
 CC = c++
 
@@ -7,8 +7,10 @@ RM = rm -rf
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp\
-		Zombie.cpp\
-		zombieHorde.cpp\
+		HumanA.cpp\
+		Weapon.cpp\
+		HumanB.cpp\
+
 
 OBJ = $(SRC:.cpp=.o)
 
