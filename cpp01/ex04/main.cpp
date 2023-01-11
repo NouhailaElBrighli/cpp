@@ -6,11 +6,31 @@ void	AddToFile(std::string& s, char **av)
 {
 	std::string s1 = av[2];
 	std::string s2 = av[3];
+	std::string str;
+	std::ofstream outfile;
+	int i;
+	int count;
 
-	if (s.find(s1) == -1)
+	count = 0;
+	i = 0;
+	str = av[1];
+	outfile.open(str + ".replace");
+	if (outfile.fail())
 	{
-		//earse
+		std::cout << "fail to open file" << std::endl;
+		exit(1);
 	}
+	while (i != -1 && count < s.length())
+	{
+
+		i = s.find(s1);
+		if (i == -1)
+			break;
+		s.erase(i, s1.length());
+		s.insert(i, s2);
+		count = i + s2.length();
+	}
+	outfile << s;
 }
 
 int main (int ac, char **av)
@@ -18,22 +38,15 @@ int main (int ac, char **av)
 	if (ac == 4)
 	{
 		std::ifstream infile;
-		std::ofstream outfile;
-		std::string str;
 		std::string s;
 
-		str = av[1];
 		infile.open(av[1]);
-		outfile.open(str + ".replace");
-		if (infile.fail() || outfile.fail())
+		if (infile.fail())
 		{
 			std::cout << "fail to open the file" << std::endl;
 			return (1);
 		}
 		getline(infile, s, '\0');
-		// outfile << s;
 		AddToFile(s, av);
-		// i = s.find(av[2]);
-		std::cout << s << std::endl;
 	}
 }
