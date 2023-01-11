@@ -6,5 +6,5 @@ int main()
 	for (int i = 0; i < 3; i++)
 		nouhaila[i].announce();
 	delete[] nouhaila;
-	// system("leaks Moar_brainz");
+	system("leaks Moar_brainz");
 }

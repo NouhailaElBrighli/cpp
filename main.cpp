@@ -11,8 +11,6 @@ void func2()
 
 int main()
 {
-	void (*dispatch[])() = {&func, &func2};
-
-	dispatch[0]();
-	dispatch[1]();
+	void (*dispatch)() = &func;
+	
 }

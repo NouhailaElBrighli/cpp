@@ -31,6 +31,7 @@ void	AddToFile(std::string& s, char **av)
 		count = i + s2.length();
 	}
 	outfile << s;
+	outfile.close();
 }
 
 int main (int ac, char **av)
@@ -48,5 +49,7 @@ int main (int ac, char **av)
 		}
 		getline(infile, s, '\0');
 		AddToFile(s, av);
+		infile.close();
 	}
+	std::cout << "invalid argument" << std::endl;
 }

@@ -29,7 +29,7 @@ int main()
 
 	// std::cout << sum1 << std::endl; 
 
-	int (Test::*pfunc)(int, int) = &Test::sum;
+	int (Test::*pfunc[2])(int, int) = {&Test::sum, &Test::sum};
 
 	Test test;
 	
