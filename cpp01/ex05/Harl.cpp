@@ -25,7 +25,7 @@ void Harl::complain(std::string level)
 	int i = 0;
 
 	void(Harl::*funPTR[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
+ 
 	std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	while (i < 4)
