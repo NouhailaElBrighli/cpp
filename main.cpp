@@ -12,15 +12,26 @@ class Test
 		~Test();
 		void set_values(int a, int b, int c, std::string name);
 		void print();
+		int get_a();
 		Test& operator= (const Test& old);
+		// std::ostream& operator<< (std::ostream &COUT) const ;
 
 };
 
+int Test::get_a()
+{
+	return (a);
+}
+
+std::ostream& operator<<(std::ostream& COUT, Test &test1)
+{
+	COUT << test1.get_a();
+	return(COUT);
+}
 
 Test& Test::operator=(const Test& old)
 {
-	std::cout << "delete b of new one" << std::endl;
-	if (this != &old)// where is the different ???
+	if (this != &old)// where is the different ??? *this != old
 	{
 		delete[] this->b; // because sometimes you will have two objects with differents parametres in constructors
 		this->a = old.a;
@@ -62,14 +73,12 @@ Test::Test()
 {
 	std::cout << "CONSTRUCTOR" << std::endl;
 	this->b = new int[2];
-	std::cout << "ALLOCATE" << std::endl;
 }
 
 Test::~Test()
 {
 	std::cout << "DESTRUCTOR" << std::endl;
 	delete[] b;
-	std::cout << "DELETE" << std::endl;
 }
 
 void execute(Test test)
@@ -86,21 +95,8 @@ void execute(Test test)
 int main()
 {
 	Test test1;
-	Test a, b, c;
 
-	test1.set_values(1, 2, 3, "nouhaila");
-	// Test test2(test1);÷
-	Test test2;
-	Test test3;
-	test1 = test1;
-	std::cout << "============test 1===============" << std::endl;
-	test1.print();
-	// std::cout << "=============test 2==============" << std::endl;
-	// test2.print();
-	// std::cout << "=============test 3==============" << std::endl;
-	// test3.print();
-
-	
-	system("leaks a.out");
-
+	test1.set_values(10, 10, 10, "nouhala");
+ 
+	std::cout << "a" << test1 << std::endl;
 }
