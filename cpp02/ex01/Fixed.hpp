@@ -20,7 +20,9 @@ class Fixed
 		int toInt( void ) const;
 };
 
-std::ostream& operator<<(std::ostream& COUT, Fixed& rhs);
+std::ostream& operator<<(std::ostream& COUT,const Fixed & rhs);
+// std::ostream& operator<<(std::ostream& COUT,Fixed& rhs(const int num));
+
 
 
 #endif

@@ -87,16 +87,25 @@ void execute(Test test)
 	test.print();
 }
 
-
 //(Test test2 = test1) == (test test2(test1)); ==>both call the copy constructor 
 // Test test2;
 // test2 = test1; ==> this call copy assignement operator
 
+float int_to_fixed(int num)
+{
+	num = num >> 8;
+	return(num);
+	// std::cout << num << std::endl;
+}
+
+//8421
+//1010
+#include <cmath>
+
 int main()
 {
-	Test test1;
+	//17.3
+	// roundf(4428.8);
 
-	test1.set_values(10, 10, 10, "nouhala");
- 
-	std::cout << "a" << test1 << std::endl;
+	// std::cout << roundf(17.3 * (1 << 8)) << std::endl;
 }

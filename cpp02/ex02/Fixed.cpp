@@ -37,23 +37,23 @@ void Fixed::setRawBits(int const raw)
 
 Fixed::Fixed(const int num)
 {
-	this->FixedPointValue = (num << 8);
+	this->FixedPointValue = (num << this->Fractional);
 }
 
 Fixed::Fixed(const float nb)
 {
-	this->FixedPointValue = roundf((nb) * (1 << 8)); //nb * 2 ^8 || *256
+	this->FixedPointValue = roundf((nb) * (1 << this->Fractional)); //nb * 2 ^8 || *256
 }
 
 float Fixed:: toFloat( void ) const
 {
 	//typecasting
-	return ((float)(this->FixedPointValue) / (1 << 8)); //nb / 2 ^8
+	return ((float)(this->FixedPointValue) / (1 << this->Fractional)); //nb / 2 ^8
 }
 
 int Fixed::toInt( void ) const
 {
-	return(this->FixedPointValue >> 8);
+	return (this->FixedPointValue >> this->Fractional);
 }
 
 std::ostream& operator<<(std::ostream  & COUT, const Fixed& rhs)
@@ -106,22 +106,34 @@ bool Fixed::operator!=(const Fixed &rhs) const
 
 Fixed Fixed::operator+(const Fixed& rhs) const
 {
-	return(Fixed((this->FixedPointValue + rhs.FixedPointValue)));// << 16 should >> 8
+	Fixed a;
+
+	a.setRawBits(this->FixedPointValue + rhs.FixedPointValue);
+	return (a);
 }
 
 Fixed Fixed::operator-(const Fixed& rhs) const
 {
-	return(Fixed((this->FixedPointValue - rhs.FixedPointValue)));// << 16 should >> 8
+	Fixed a;
+
+	a.setRawBits(this->FixedPointValue - rhs.getRawBits());
+	return (a);
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const
 {
-	return(Fixed((this->FixedPointValue * rhs.getRawBits())));
+	Fixed a;
+
+	a.setRawBits((this->FixedPointValue * rhs.getRawBits()) >> this->Fractional);
+	return (a);
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const
 {
-	return(Fixed((this->FixedPointValue / rhs.getRawBits())));
+	Fixed a;
+
+	a.setRawBits((this->FixedPointValue / rhs.getRawBits()) << this->Fractional);
+	return (a);
 }
 
 Fixed Fixed::operator++()
@@ -132,16 +144,16 @@ Fixed Fixed::operator++()
 
 Fixed Fixed::operator++(int)
 {
-	Fixed tmp (*this);// 10 + 1 ==> 11 { 1010.0000001}
+	Fixed tmp (*this);
 
 	FixedPointValue++;
-	return(tmp);
+	return (tmp);
 }
 
 Fixed Fixed::operator--()
 {
 	this->FixedPointValue--;
-	return(*this);
+	return (*this);
 }
 
 Fixed Fixed::operator--(int)
@@ -152,3 +164,30 @@ Fixed Fixed::operator--(int)
 	return(tmp);
 }
 
+Fixed const & Fixed::min(const Fixed &a,const Fixed &b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+Fixed& Fixed::min(Fixed &a,Fixed &b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+Fixed const &  Fixed::max(const Fixed &a,const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed & Fixed::max(Fixed &a,Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}

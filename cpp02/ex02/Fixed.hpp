@@ -32,9 +32,14 @@ class Fixed
 		Fixed operator--(int);
 		Fixed operator++();
 		Fixed operator--();
-		static Fixed &min();
+		Fixed const static  &min(const Fixed  &a,const Fixed &b);
+		Fixed static  &min(Fixed  &a, Fixed &b);
+		Fixed static  &max(Fixed  &a, Fixed &b);
+		Fixed const static  &max(const Fixed  &a,const Fixed &b);
 };
 
 std::ostream& operator<<(std::ostream& COUT,const Fixed & rhs);
+
+
 
 #endif
