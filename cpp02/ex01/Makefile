@@ -1,4 +1,4 @@
-NAME = FirstClass
+NAME = FixedPoint
 
 CC = c++
 

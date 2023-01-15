@@ -1,4 +1,4 @@
-NAME = FirstClass
+NAME = NowWeAreTalking
 
 CC = c++
 

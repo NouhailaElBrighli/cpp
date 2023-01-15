@@ -158,7 +158,7 @@ Fixed Fixed::operator--()
 
 Fixed Fixed::operator--(int)
 {
-	Fixed tmp (*this);// 10 + 1 ==> 10 { 1010.00000001 }
+	Fixed tmp (*this);
 
 	FixedPointValue--;
 	return(tmp);
