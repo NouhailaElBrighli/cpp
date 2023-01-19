@@ -6,7 +6,7 @@
 /*   By: nel-brig <nel-brig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:56:37 by nel-brig          #+#    #+#             */
-/*   Updated: 2023/01/17 23:06:51 by nel-brig         ###   ########.fr       */
+/*   Updated: 2023/01/18 04:25:16 by nel-brig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		void Print_attributes();
+		// void Print_attributes();
 };
 
 

@@ -10,8 +10,8 @@ class base
 	public :
 		base();
 		~base();
-		std::string name;
 		void print_something();
+		std::string name;
 };
 
 base::base()
@@ -30,8 +30,9 @@ class derived1 : public base
 		derived1();
 		~derived1();
 		int a;
-		void func();
+		void print_something();
 };
+
 
 derived1::~derived1()
 {
@@ -45,25 +46,25 @@ derived1::derived1()
 
 void base::print_something()
 {
-	std::cout << "something" << std::endl;
-	this->l = 5;
+	std::cout << "base something" << std::endl;
 }
 
-void derived1::func()
+void derived1::print_something()
 {
-	this->name = "hello";
-	this->l = 1;
-	std::cout << "func" << std::endl;
-	this->print_something();
-	// this->print_something();
+	std::cout << "derived something" << std::endl;
+}
+
+void print(base *der)
+{
+	der->print_something();
 }
 
 int main()
 {
-	// base base;
-	derived1 der1;
+	// base b;
+	
+	derived1 *der1 = new derived1();
 
-	
-	// der1.print_something();
+	print(der1);
+	delete der1;
 }
-	

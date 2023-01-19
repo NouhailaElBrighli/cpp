@@ -6,7 +6,7 @@
 /*   By: nel-brig <nel-brig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:56:26 by nel-brig          #+#    #+#             */
-/*   Updated: 2023/01/18 02:30:32 by nel-brig         ###   ########.fr       */
+/*   Updated: 2023/01/18 04:32:35 by nel-brig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 /***************************************************/
 
-void ClapTrap::Print_attributes()
-{
-	std::cout << "***********************************" << std::endl;
-	std::cout << "name == " << name << std::endl;
-	std::cout << "hit points == " << HitPoints << std::endl;
-	std::cout << "Energy points == " << EnergyPoints << std::endl;
-	std::cout << "attack damage == " << AttackDamage << std::endl;
-	std::cout << "***********************************" << std::endl;
-}
+// void ClapTrap::Print_attributes()
+// {
+// 	std::cout << "***********************************" << std::endl;
+// 	std::cout << "name == " << name << std::endl;
+// 	std::cout << "hit points == " << HitPoints << std::endl;
+// 	std::cout << "Energy points == " << EnergyPoints << std::endl;
+// 	std::cout << "attack damage == " << AttackDamage << std::endl;
+// 	std::cout << "***********************************" << std::endl;
+// }
 
 /***********************************************/
 
@@ -48,9 +48,9 @@ void ClapTrap::attack(const std::string& target)
 	if (this->EnergyPoints == 0 || this->HitPoints == 0)
 	{
 		if (name.length() == 0)
-			std::cout << "\033[1;31m" << "he is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << "he is already dead\033[1;30m" << std::endl;
 		else
-			std::cout << "\033[1;31m" << name << " is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << name << " is already dead\033[1;30m" << std::endl;
 		return;
 	}
 	this->EnergyPoints--;
@@ -65,9 +65,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (this->EnergyPoints == 0 || this->HitPoints == 0)
 	{
 		if (name.length() == 0)
-			std::cout << "\033[1;31m" << "he is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << "he is already dead\033[1;30m" << std::endl;
 		else
-			std::cout << "\033[1;31m" << name << " is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << name << " is already dead\033[1;30m" << std::endl;
 		return;
 	}
 	this->EnergyPoints--;
@@ -83,9 +83,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->EnergyPoints == 0 || this->HitPoints == 0)
 	{
 		if (name.length() == 0)
-			std::cout << "\033[1;31m" << "he is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << "he is already dead\033[1;30m" << std::endl;
 		else
-			std::cout << "\033[1;31m" << name << " is already died\033[1;30m" << std::endl;
+			std::cout << "\033[1;31m" << name << " is already dead\033[1;30m" << std::endl;
 		return;
 	}
 	this->HitPoints -= amount;

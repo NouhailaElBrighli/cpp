@@ -3,13 +3,12 @@
 
 int	main()
 {
-	// FragTrap nouha("nouha");
 	FragTrap nouha("nouha");
 
-	nouha.attack("koo");
+	nouha.attack("khoula");
 	nouha.beRepaired(10);
-	nouha.attack("koo");
+	nouha.attack("khaoula");
 	nouha.highFivesGuys();
 	nouha.takeDamage(1550);
-	nouha.attack("koo");
+	nouha.attack("khaoula");
 }
