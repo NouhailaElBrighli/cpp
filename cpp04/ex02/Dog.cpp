@@ -9,8 +9,8 @@ Dog::Dog()
 
 Dog::~Dog()
 {
-	delete this->br;
 	std::cout << "Dog Desttructor" << std::endl;
+	delete this->br;
 }
 
 Dog& Dog::operator=(const Dog &obj)
@@ -19,10 +19,10 @@ Dog& Dog::operator=(const Dog &obj)
 	if (this != &obj)
 	{
 		if (this->br != NULL)
-			delete this->br;
+			delete br;
 		this->br = new Brain();
-		for(int i = 0; i < 100; i++)
-			this->br->ideas[i] = obj.br->ideas[i];
+		for (int i = 0; i < 100; i++)
+			this->br->setIdeas(obj.br->getIdeas(i), i);
 		this->type = obj.type;
 	}
 	return(*this);

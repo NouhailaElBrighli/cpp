@@ -31,7 +31,7 @@ std::string Brain::getIdeas(int index)
 	return(this->ideas[index]);
 }
 
-Brain :: Brain(const Brain &obj)
+Brain::Brain(const Brain &obj)
 {
 	std::cout << "Brain Copy Constructor" << std::endl;
 	*this = obj;

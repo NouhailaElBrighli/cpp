@@ -1,80 +1,23 @@
 #include <iostream>
 
-class base
-{
-	private :
-		int k;
-	protected :
-		int l;
-
+class Parent{
 	public :
-		base();
-		virtual ~base();
-		virtual void print_something() = 0;
-		void hello();
-		std::string name;
+    virtual void show() = 0;
+
+    // void show(int a){
+    //     std::cout << "CCC" << std::endl;
+    // }
 };
 
-base::base()
-{
-	std::cout << "base constructor" << std::endl;
-}
-
-void base::hello()
-{
-	std::cout << "hello" << std::endl;
-}
-
-base::~base()
-{
-	std::cout << "base Destructor" << std::endl;
-}
-
-class derived1 : public base
-{
+class Child : public Parent{
 	public :
-		derived1();
-		~derived1();
-		int a;
-		void print_something();
+    void show(){
+        std::cout << "BBB" << std::endl;
+    }
 };
 
-
-derived1::~derived1()
-{
-	std::cout << "derived destructor" << std::endl;
-}
-
-derived1::derived1()
-{
-	std::cout << "derived constructor" << std::endl;
-}
-
-void base::print_something()
-{
-	std::cout << "base something" << std::endl;
-}
-
-void derived1::print_something()
-{
-	std::cout << "derived something" << std::endl;
-	this->hello();
-}
-
-void print(base *der)
-{
-	der->print_something();
-}
-
-int main()
-{
-	// base b;
-	base *der1 = new derived1();
-
-	derived1 a;
-	derived1 b;
-
-	delete der1;
-	// print(der1);
-	// delete der1;
+int main(){
+    Parent * c = new Child;
+    c->show();
+    // c->show(10); // Error!
 }

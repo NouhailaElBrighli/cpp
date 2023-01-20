@@ -10,25 +10,18 @@ int main()
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << meta->getType() << " " << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	meta->makeSound();
-	delete meta;
+	
+
 	delete i;
 	delete j;
+	delete meta;
+	// const WrongAnimal *cat = new WrongCat();
+	// cat->makeSound();
+	// delete cat;
+	// system("leaks Polymorphism");
 	return 0;
 }
-
-// int main()
-// {
-// 	const WrongAnimal *anl = new WrongAnimal();
-// 	const WrongAnimal *cat = new WrongCat();
-
-// 	anl->makeSound();
-// 	cat->makeSound();
-// 	delete anl;
-// 	delete cat;
-// }

@@ -7,7 +7,7 @@
 class Brain
 {
 	private:
-		std::string ideas[100]; // ask for this 
+		std::string ideas[100];
 	public :
 		void setIdeas(std::string indeas, int index);
 		std::string getIdeas(int index);

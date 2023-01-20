@@ -9,8 +9,8 @@ Dog::Dog()
 
 Dog::~Dog()
 {
-	delete this->br;
 	std::cout << "Dog Desttructor" << std::endl;
+	delete this->br;
 }
 
 Dog& Dog::operator=(const Dog &obj)
@@ -20,7 +20,6 @@ Dog& Dog::operator=(const Dog &obj)
 	{
 		if (this->br != NULL)
 			delete br;
-		//free and allo Dog second time
 		this->br = new Brain();
 		for (int i = 0; i < 100; i++)
 			this->br->setIdeas(obj.br->getIdeas(i), i);

@@ -6,13 +6,13 @@
 
 int main()
 {
-	Dog *dog = new Dog();
-	Cat *cat = new Cat();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	
-	dog->makeSound();
-	cat->makeSound();
-	delete dog;
-	delete cat;
+
+	// Animal a;
+	delete j;//should not create a leak
+	delete i;
+	// system("leaks Abstrac");
 	return 0;
 }
