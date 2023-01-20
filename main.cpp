@@ -9,14 +9,20 @@ class base
 
 	public :
 		base();
-		~base();
-		void print_something();
+		virtual ~base();
+		virtual void print_something() = 0;
+		void hello();
 		std::string name;
 };
 
 base::base()
 {
 	std::cout << "base constructor" << std::endl;
+}
+
+void base::hello()
+{
+	std::cout << "hello" << std::endl;
 }
 
 base::~base()
@@ -52,6 +58,7 @@ void base::print_something()
 void derived1::print_something()
 {
 	std::cout << "derived something" << std::endl;
+	this->hello();
 }
 
 void print(base *der)
@@ -62,9 +69,12 @@ void print(base *der)
 int main()
 {
 	// base b;
-	
-	derived1 *der1 = new derived1();
+	base *der1 = new derived1();
 
-	print(der1);
+	derived1 a;
+	derived1 b;
+
 	delete der1;
+	// print(der1);
+	// delete der1;
 }

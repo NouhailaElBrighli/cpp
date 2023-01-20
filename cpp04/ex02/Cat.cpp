@@ -18,9 +18,7 @@ Cat& Cat::operator=(const Cat &obj)
 	std::cout << "Cat assignement operator overloading" << std::endl;
 	if (this != &obj)
 	{
-		//free and allocate second time
-		for (int i = 0; i < 100; i++)
-			this->br->setIdeas(obj.br->getIdeas(i), i);
+
 		this->type = obj.type;
 	}
 	return(*this);

@@ -6,7 +6,7 @@
 /*   By: nel-brig <nel-brig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:56:26 by nel-brig          #+#    #+#             */
-/*   Updated: 2023/01/18 04:26:48 by nel-brig         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:17:37 by nel-brig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ClapTrap::attack(const std::string& target)
 	if (name.length() == 0)
 		std::cout << "\033[1;32mclapTrap attacks "  << target << " " << "causing " << AttackDamage << " point of damage\033[1;30m" << std::endl;
 	else
-		std::cout << "\033[1;32mclapTrap "  << name << " attacks "  << target << " " << "causing " << AttackDamage << " point of damage\033[1;30m" << std::endl;
+		std::cout << "\033[1;32mclapTrap "  << this->name << " attacks "  << target << " " << "causing " << AttackDamage << " point of damage\033[1;30m" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

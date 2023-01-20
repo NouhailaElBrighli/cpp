@@ -4,13 +4,12 @@
 #include <iostream>
 #include <string>
 
+
 class Brain
 {
-	private:
-		std::string ideas[100]; // ask for this 
+	// private:
 	public :
-		void setIdeas(std::string indeas, int index);
-		std::string getIdeas(int index);
+		std::string ideas[100]; // ask for this 
 		Brain();
 		Brain(const Brain &obj);
 		Brain &operator=(const Brain &obj);

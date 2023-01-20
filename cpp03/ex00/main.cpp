@@ -6,7 +6,7 @@
 /*   By: nel-brig <nel-brig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:58:17 by nel-brig          #+#    #+#             */
-/*   Updated: 2023/01/18 04:33:18 by nel-brig         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:00:07 by nel-brig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main()
 {
 	ClapTrap nouha("nouha");
+	// ClapTrap nouha;
 
 	nouha.attack("khaoula");
 	nouha.beRepaired(5);

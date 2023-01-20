@@ -21,16 +21,6 @@ Brain& Brain::operator=(const Brain &obj)
 	return(*this);
 }
 
-void Brain::setIdeas(std::string ideas, int index)
-{
-	this->ideas[index] = ideas;
-}
-
-std::string Brain::getIdeas(int index)
-{
-	return(this->ideas[index]);
-}
-
 Brain :: Brain(const Brain &obj)
 {
 	std::cout << "Brain Copy Constructor" << std::endl;

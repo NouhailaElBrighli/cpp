@@ -19,11 +19,10 @@ Dog& Dog::operator=(const Dog &obj)
 	if (this != &obj)
 	{
 		if (this->br != NULL)
-			delete br;
-		//free and allo Dog second time
+			delete this->br;
 		this->br = new Brain();
-		for (int i = 0; i < 100; i++)
-			this->br->setIdeas(obj.br->getIdeas(i), i);
+		for(int i = 0; i < 100; i++)
+			this->br->ideas[i] = obj.br->ideas[i];
 		this->type = obj.type;
 	}
 	return(*this);
