@@ -29,5 +29,19 @@ PresidentialPardonForm :: ~PresidentialPardonForm()
 
 void PresidentialPardonForm :: execute(Bureaucrat const & executor) const
 {
-	executor.signForm(*this);
+	if (getGrade_execute() < 1)
+	{
+		GradeTooLowException high;
+		throw high;
+	}
+	if (getGrade_execute() > 150)
+	{
+		GradeTooLowException low;
+		throw low;
+	}
+	if (getI_sign() == true)
+	{
+		std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		
+	}
 }

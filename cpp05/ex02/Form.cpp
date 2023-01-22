@@ -63,13 +63,19 @@ std::ostream& operator<<(std::ostream  & COUT, Form & rhs)
 	COUT << "name : " << rhs.getName() << " grade required to sign : " << rhs.getgradeSign() << " grade required to execute : " << rhs.getGrade_execute() << std::endl; 
 	return(COUT);
 }
-void const Form::beSigned(Bureaucrat const &br) const
+
+bool const Form::getI_sign() const
+{
+	return(Is_sign);
+}
+
+
+void Form::beSigned(Bureaucrat  &br)
 {
 	if (this->gradeSign >= br.getGrade())
 	{
+		this->Is_sign = true;
 		return;
-		// setSign();
-		// Is_sign = true;
 	}
 	else
 	{

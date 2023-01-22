@@ -38,7 +38,7 @@ class Bureaucrat
 				return("Grade Too Low Exception");		
 			}
 		};
-		void const signForm(Form const &fr) const;
+		void signForm(Form  &fr);
 };
 
 std::ostream& operator<<(std::ostream  & COUT, Bureaucrat & rhs);

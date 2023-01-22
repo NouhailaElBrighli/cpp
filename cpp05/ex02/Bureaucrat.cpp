@@ -81,7 +81,7 @@ std::ostream& operator<<(std::ostream  & COUT, Bureaucrat & rhs)
 	return(COUT);
 }
 
-void const Bureaucrat::signForm(Form const &fr) const
+void Bureaucrat::signForm(Form  &fr)
 {
 	try
 	{

@@ -21,6 +21,7 @@ class Form
 		std::string const getName() const;
 		int const getgradeSign() const;
 		int const getGrade_execute() const;
+		bool const getI_sign() const;
 		class GradeTooHighException : public std::exception
 		{
 			virtual const char *what() const throw()
@@ -35,10 +36,8 @@ class Form
 				return("Grade Too Low Exception");		
 			}
 		};
-		void const beSigned(Bureaucrat const &br)const;
+		void  beSigned(Bureaucrat &br);
 		virtual void execute(Bureaucrat const & executor) const = 0;
-		// void initVaribles(std::string name, int gradeSign,int  grade_execute);
-
 };
 
 

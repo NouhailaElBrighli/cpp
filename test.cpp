@@ -26,15 +26,8 @@ int sub(int a, int b)
 
 int main()
 {
-
-	// std::cout << sum1 << std::endl; 
-
-	int (Test::*pfunc[2])(int, int) = {&Test::sum, &Test::sum};
-
-	Test test;
 	
-
-
-	// std::cout << psum1(10, 10) << std::endl;
-
+	srand(time(0));
+	std::cout << rand() << std::endl;
+	std::cout << rand() << std::endl;
 }
