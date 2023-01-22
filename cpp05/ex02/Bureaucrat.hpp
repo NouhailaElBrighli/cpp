@@ -39,6 +39,7 @@ class Bureaucrat
 			}
 		};
 		void signForm(Form  &fr);
+		void executeForm(Form const & form);
 };
 
 std::ostream& operator<<(std::ostream  & COUT, Bureaucrat & rhs);

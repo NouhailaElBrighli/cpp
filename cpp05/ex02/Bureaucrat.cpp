@@ -2,18 +2,18 @@
 
 Bureaucrat::Bureaucrat()
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		// this->name = rhs.name; // ask for this
@@ -24,12 +24,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& rhs)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
-	std::cout << "constructor by parametre called" << std::endl;
+	// std::cout << "constructor by parametre called" << std::endl;
 	if (grade > 150)
 	{
 		GradeTooLowException low;
@@ -92,4 +92,18 @@ void Bureaucrat::signForm(Form  &fr)
 	{
 		std::cout << this->name <<  " coudn't sign " << fr.getName() << " because " <<  e.what() << std::endl;
 	}
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	if (form.getI_sign() == false)
+	{
+		std::cout << "can't execute form" << std::endl;
+	}
+	else if (form.getGrade_execute() > this->grade)
+	{
+		std::cout << "" << std::endl;
+	}
+	else
+		form.execute(*this);
 }

@@ -3,35 +3,29 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
+	// std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs)
 {
-	std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
+	// std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
-	std::cout << "Copy Form assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
-	}
+	// std::cout << "Copy Form assignment operator called" << std::endl;
 	return(*this);
 }
 
 ShrubberyCreationForm ::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
+	// std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
 }
 
 ShrubberyCreationForm :: ShrubberyCreationForm(std::string target) : Form(target, 145, 137)
 {
-	std::ofstream outfile;
 	
-	outfile.open(target + "_shrubbery");
-	//write ascii trees
 }
 
 
@@ -47,7 +41,7 @@ void ShrubberyCreationForm ::execute(Bureaucrat const & executor) const
 		GradeTooLowException low;
 		throw low;
 	}
-	if (getI_sign())
+	if (getI_sign() == true)
 	{
 		std::ofstream outfile;
 		outfile.open(getName() + "_shrubbery");
@@ -58,10 +52,11 @@ void ShrubberyCreationForm ::execute(Bureaucrat const & executor) const
    		outfile <<	"   ,%&&&&&%&&%,@@@@@@@/@@@88888888/88\n";
    		outfile <<	"  %&&%&%&/%&&%@@@@@/ /@@@88888888888'\n";
    		outfile <<	"   %&&%/ %&%%&&@@@ V /@@' `8888 `/88'\n";
-     	outfile <<  "    `&% ` /%&'    |.|          '|8' \n"; 
-		outfile <<  "         |o|       | |          | |  \n"; 
-		outfile <<  "         |.|       | |          | |  \n"; 
-		outfile <<  "\\/ ._   /_/  ,  //__\\/.    //__ /  \n"; 
-		// outfile.close();
+     	outfile <<  "    `&% ` /%&'    |.|          '|8'  \n"; 
+		outfile <<  "         |o|      | |           | |  \n"; 
+		outfile <<  "         |.|      | |           | |  \n"; 
+		outfile <<  "  \\/ ._   /_/  ,  //__\\/.    //_| |\n"; 
+		outfile.close();
 	}
 }
+
