@@ -1,13 +1,13 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137)
 {
 	this->target = "default";
 	// std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs) : Form("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs) : Form("ShrubberyCreationForm", 145, 137)
 {
 	// std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 	*this = rhs;
@@ -25,7 +25,7 @@ ShrubberyCreationForm ::~ShrubberyCreationForm()
 	// std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
 }
 
-ShrubberyCreationForm :: ShrubberyCreationForm(std::string target) : Form("Shrubbery", 145, 137)
+ShrubberyCreationForm :: ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137)
 {
 	this->target = target;
 }

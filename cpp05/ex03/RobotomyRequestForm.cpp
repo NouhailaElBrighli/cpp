@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy Request", 72, 45)
 {
 	this->target = "default";
 	// std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs) : Form("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs) : Form("Robotomy Request", 72, 45)
 {
 	// std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
 	*this = rhs;
@@ -24,7 +24,7 @@ RobotomyRequestForm ::~RobotomyRequestForm()
 	// std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 }
 
-RobotomyRequestForm :: RobotomyRequestForm(std::string target) : Form("Robotomy", 72, 45)
+RobotomyRequestForm :: RobotomyRequestForm(std::string target) : Form("Robotomy Request", 72, 45)
 {
 	this->target = target;
 	// std::cout << "RobotomyRequestForm constructor by parametre called" << std::endl;
@@ -39,6 +39,7 @@ void RobotomyRequestForm ::execute(Bureaucrat const & executor) const
 {
 	if (getGrade_execute() < executor.getGrade() || getI_sign() == false)
 	{
+		// std::cout << "bureacrat : " << executor.getGrade() << " Form :" << getGrade_execute() << std::endl;
 		GradeTooLowException low;
 		throw low;
 	}

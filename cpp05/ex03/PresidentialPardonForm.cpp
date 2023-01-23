@@ -1,12 +1,12 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form( "Pardon" , 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form( "Presidential Pardon" , 25, 5)
 {
 	this->target = "default";
 	// std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &rhs) : Form( "Pardon" , 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &rhs) : Form( "Presidential Pardon" , 25, 5)
 {
 	// std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
 	*this = rhs;
@@ -19,7 +19,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return(*this);
 }
 
-PresidentialPardonForm :: PresidentialPardonForm(std::string target) :  Form("Pardon" , 25, 5)
+PresidentialPardonForm :: PresidentialPardonForm(std::string target) :  Form("Presidential Pardon" , 25, 5)
 {
 	this->target = target;
 	// std::cout << "PresidentialPardonForm constructor by parametre called" << std::endl;
