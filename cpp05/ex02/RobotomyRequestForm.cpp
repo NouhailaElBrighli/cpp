@@ -47,7 +47,7 @@ void RobotomyRequestForm ::execute(Bureaucrat const & executor) const
 		srand(time(0));
 		if (rand() % 2 == 1)
 		{
-			std::cout << get_target() << " has been robotomized successfully 50% of the time." << std::endl;
+			std::cout << get_target() << " has been robotomized successfully " << std::endl;
 		}
 		else
 			std::cout << "the robotomy failed" << std::endl;

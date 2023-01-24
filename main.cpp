@@ -1,50 +1,53 @@
 #include <iostream>
-#include <exception>
 
-class ClassException : public std::exception
+class base
 {
-	int a;
-	virtual const char * what() const throw();
-};
-
-const char *ClassException::what() const throw()
-{
-	return("negative"); 
-}
-
-class Parent{
-	std::string name;
-	int count;
 	public :
-		void set(std::string name, int count);
+		int a;
+		virtual void print();
 };
 
-void Parent::set(std::string name, int count)
+class derived : public base
 {
-	if (count < 0)
-	{
-		ClassException test;
-		throw test;
-	}
-	this->name = name;
-	this->count = count;
-	std::cout << "everythig is ok" << std::endl;
+	public :
+		int a;
+		void der();
+};
+
+void base::print()
+{
+	std::cout << "something" << std::endl;
 }
 
-int main(){
-	Parent p;
-
-	try
-	{
-		p.set("nouha", -15);
-	}
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "catch exception " << e.what();
-	// }
-	catch(...)
-	{
-		std::cout << "EXCEPTIOIN" << std::endl;
-	}
-	// std::cout << "here" << std::endl;
+void derived::der()
+{
+	std::cout << "derived class" << std::endl;
 }
+
+class A {
+public:
+    void fun_a()
+    {
+        std::cout << " In class A\n";
+    }
+};
+ 
+class B {
+public:
+    void fun_b()
+    {
+        std::cout << " In class B\n";
+    }
+};
+ 
+int main()
+{
+	uintptr_t t;
+	
+	std::cout << sizeof(t) << std::endl;
+	B *x = new B();
+
+	// A *a = reinterpret_cast<A *>(x);
+	(reinterpret_cast<A *>(x))->fun_a();
+}
+

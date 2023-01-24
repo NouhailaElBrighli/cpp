@@ -8,14 +8,16 @@ int main()
 {
 	try
 	{
-		Bureaucrat nouha("nouha", 40);
+		Bureaucrat nouha("nouha", 6);
 
-		// ShrubberyCreationForm khaoula("khaoula");
-		RobotomyRequestForm kawla("k");
-		// PresidentialPardonForm hajar("awlahajar");
-		// khaoula.execute(nouha);
-		kawla.beSigned(nouha);
-		nouha.executeForm(kawla);
+		ShrubberyCreationForm khaoula("khaoula");
+		khaoula.beSigned(nouha);
+		// khadija.beSigned(nouha);
+		// hajar.beSigned(nouha);
+		nouha.executeForm(khaoula);
+		// nouha.executeForm(khadija);
+		// nouha.executeForm(hajar);
+
 	}
 	catch(std::exception &e)
 	{

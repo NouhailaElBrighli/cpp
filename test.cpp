@@ -20,14 +20,19 @@ int sum1(int a, int b)
 
 int sub(int a, int b)
 {
-	std::cout << "chamson sata3at" << std::endl; 
+	throw 10;
+	// std::cout << "chamson sata3at" << std::endl; 
 	return(10);
 }
 
 int main()
 {
-	
-	srand(time(0));
-	std::cout << rand() << std::endl;
-	std::cout << rand() << std::endl;
+	try 
+	{
+		sub(5, 6);
+	}
+	catch (int call)
+	{
+		std::cout << call << std::endl;
+	}
 }
