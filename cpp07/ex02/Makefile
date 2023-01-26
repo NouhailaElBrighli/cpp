@@ -1,4 +1,4 @@
-NAME = ScalarType
+NAME = array
 
 CC = c++
 
@@ -17,7 +17,7 @@ $(NAME) : $(OBJ)
 
 clean :
 		@$(RM) $(OBJ)
-  
+
 fclean : clean
 		@$(RM) $(NAME)
 

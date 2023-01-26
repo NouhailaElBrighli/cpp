@@ -4,7 +4,7 @@ CC = c++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp\
 		
@@ -14,7 +14,7 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+		$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 		@$(RM) $(OBJ)

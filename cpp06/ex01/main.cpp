@@ -31,7 +31,7 @@ int main()
 	uintptr_t ser = serialize(d);
 	std::cout << ser << std::endl;
 	std::cout << d << std::endl;
-	Data *ret = deserialize(serialize(d));
+	Data *ret = deserialize(ser);
 
 	std::cout << ret->d << std::endl;
 	std::cout << ret->a << std::endl;
