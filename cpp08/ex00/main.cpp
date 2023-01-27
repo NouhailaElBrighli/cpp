@@ -21,9 +21,9 @@ int main()
 	vec.push_back(17);
 	vec.push_back(18);
 
-	std::array<int, 5> arr = {1,2,3,4,5};
+	std::array<int, 5> arr = {1,4,3,4,-4};
 
-	easyfind(arr, 4);
-	easyfind(vec, 20);
+	easyfind(arr, 0);
+	//easyfind(vec, 20);
 
 }
