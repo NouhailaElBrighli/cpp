@@ -49,3 +49,15 @@ int main(int, char**)
     delete [] mirror;
     return 0;
 }
+
+// int main()
+// {
+// 	Array<char> number(5);
+// 	char c = 'a';
+// 	for (int i = 0; i < 5; i ++)
+// 	{
+// 		number[i] = c;
+// 		c++;
+// 		std::cout << c << " number[i] : " << number[i] << std::endl;
+// 	}
+// }

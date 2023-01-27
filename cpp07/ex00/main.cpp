@@ -20,10 +20,9 @@ template<typename T>
 T max(T a, T b)
 {
 	if (a < b)
-		return(a);
-	return (b);
+		return(b);
+	return (a);
 }
-
 
 int main( void ) {
 	int a = 2;

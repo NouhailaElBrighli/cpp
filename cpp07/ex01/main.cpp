@@ -10,15 +10,17 @@ void iter(T *arr, unsigned int len, void (*func)(T const &))
 template <typename T>
 void print (T  const &x)
 {
-	std::cout << "print : " << x << std::endl;
+	std::cout << x << std::endl;
 }
+
 
 int main()
 {
-	// int tab[] = {0, 1, 5, 10};
-	// char arr[] = {'a', 'b', 'c'};
-	// void (*p)(int const &);
-	// p = print();
-	std::string arr[] = {"nouha", "khaoula", "khadija"};
-	iter(arr, 3, print);
+	char array[] = {'a', 'b', 'c'};
+	std::string str[] = {"nouha", "khaoula", "khadija"};
+	int tab[] = {0, 1, 5, 10};
+	iter(array, 3, print);
+	iter(str, 3, print);
+	iter(tab, 4, print);
 }
+
